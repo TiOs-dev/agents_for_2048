@@ -53,6 +53,8 @@ class Game2048Env(gym.Env):
             self.font_color = (0, 0, 0)
             self.font = pygame.font.SysFont("arial", 40)
 
+            self.screen = pygame.Surface((self.screen_width, self.screen_height))
+
             pygame.init()
             pygame.display.init()
             self.window = pygame.display.set_mode(
@@ -104,38 +106,32 @@ class Game2048Env(gym.Env):
         return observation, reward, terminated, truncated, info
 
     def render(self):
-        if self.render_mode == "human":
-            return self._render_frame()
+        self._draw_board()
+        self.window.blit(self.screen, self.screen.get_rect())
+        pygame.event.pump()
+        pygame.display.update()
 
-    def _draw_tile(self, screen, value, x, y):
+        self.clock.tick(self.metadata["render_fps"])
+
+    def _draw_tile(self, value, x, y):
         color = self.tile_colors.get(value, (60, 58, 50))
         rect = pygame.Rect(x, y, self.tile_size, self.tile_size)
-        pygame.draw.rect(screen, color, rect)
+        pygame.draw.rect(self.screen, color, rect)
         if value != 0:
             text = self.font.render(str(value), True, self.font_color)
             text_rect = text.get_rect(
                 center=(x + self.tile_size / 2, y + self.tile_size / 2)
             )
-            screen.blit(text, text_rect)
+            self.screen.blit(text, text_rect)
 
-    def _draw_board(self, screen):
-        screen.fill(self.background_color)
+    def _draw_board(self):
+        self.screen.fill(self.background_color)
         for row in range(self.size):
             for col in range(self.size):
                 value = self._board.board[row][col]
                 x = self.margin + self.gap_size + col * (self.tile_size + self.gap_size)
                 y = self.margin + self.gap_size + row * (self.tile_size + self.gap_size)
-                self._draw_tile(screen, value, x, y)
-
-    def _render_frame(self):
-        if self.render_mode == "human":
-            screen = pygame.Surface((self.screen_width, self.screen_height))
-            self._draw_board(screen)
-            self.window.blit(screen, screen.get_rect())
-            pygame.event.pump()
-            pygame.display.update()
-
-            self.clock.tick(self.metadata["render_fps"])
+                self._draw_tile(value, x, y)
 
     def close(self):
         if self.window is not None:
