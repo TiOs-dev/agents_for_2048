@@ -1,5 +1,5 @@
 [project]
-name = "agents-for-2048"
+name = "rl-training-framework"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -8,6 +8,7 @@ dependencies = [
     "2048-pyo3",
     "gymnasium>=1.2.2",
     "matplotlib>=3.10.7",
+    "pygame>=2.6.1",
     "pylint>=4.0.3",
     "pyqt6>=6.10.0",
     "torch>=2.9.0",
@@ -16,3 +17,8 @@ dependencies = [
 
 [tool.uv.sources]
 2048-pyo3 = { path = "submodules/2048.pyo3" }
+
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
