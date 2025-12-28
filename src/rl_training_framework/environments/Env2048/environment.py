@@ -37,7 +37,7 @@ class Env2048(EnvironmentBase):
             dtype=np.uint32,
         )
 
-        self._action_space = gym.spaces.Discrete(4)
+        self.action_space = gym.spaces.Discrete(4)
         self._render_mode = render_mode
 
         if self._render_mode == "human":
