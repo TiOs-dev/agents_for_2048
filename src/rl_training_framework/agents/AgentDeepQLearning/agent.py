@@ -17,6 +17,14 @@ from rl_training_framework.agents.AgentDeepQLearning.utils import (
     TRANSITION,
 )
 
+# TODO: Welche Werte möchte ich statistisch auswerten?
+# - [] Reward
+# - [] Number of turns until termination in each episode
+# - [] Number of turns per episode where no move was done (should increase with smaller eps)
+# - [] Biggest tile at the end of the episode
+# TODO: Sth ist fishy with terminated. Find out why terminated is sometimes set True even if it
+# should be false!
+
 
 class Agent(AgentBase):
     def __init__(
@@ -37,7 +45,7 @@ class Agent(AgentBase):
 
         self.setup_training()
 
-    def select_action(self, state: torch.Tensor):
+    def select_action(self, state: torch.Tensor) -> int:
         sample = random.random()
         eps_threshold = self.hyperparams["eps_end"] + (
             self.hyperparams["eps_start"] - self.hyperparams["eps_end"]
@@ -46,9 +54,20 @@ class Agent(AgentBase):
         if sample > eps_threshold:
             with torch.no_grad():
                 result = self.policy_net(state).max(1).indices.view(1, 1)
-                return result
         else:
-            return torch.tensor([[self.env.action_space.sample()]], dtype=torch.long)
+            result = torch.tensor([[self.env.action_space.sample()]], dtype=torch.long)
+
+        possible_actions = self._env.get_possible_actions()
+        print("Chosen action:", result.item())
+        print("POSSIBLE ACTIONS:", possible_actions)
+        if result.item() not in possible_actions:
+            try:
+                return torch.tensor(
+                    [[random.choice(possible_actions)]], dtype=torch.long
+                )
+            except IndexError:
+                return None
+        return result
 
     def optimize_model(self):
         if len(self.memory) < self.hyperparams["batch_size"]:
@@ -116,6 +135,10 @@ class Agent(AgentBase):
             range(1000), desc="curr run", position=1, leave=False
         ):  # TODO: How do I deal with truncation (range(1000))? Do I control it here or in the environment?
             action = test_agent.select_action(self.state)
+            if action is None:
+                next_state = None
+                break
+
             observation, reward, terminated, truncated, _ = self._env.step(
                 action.item()
             )
@@ -123,9 +146,16 @@ class Agent(AgentBase):
             reward = torch.tensor([reward], device="cpu")
             done = terminated or truncated
 
-            if terminated:
-                next_state = None
-                break
+            print("Terminated:", terminated)
+
+            # if terminated:
+            #     # next_state = None
+            #     # break
+            #     if self._env.step_possible():
+            #         continue
+
+            #     next_state = None
+            #     break
 
             next_state = torch.tensor(
                 observation, dtype=torch.float32, device="cpu"

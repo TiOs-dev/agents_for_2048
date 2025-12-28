@@ -78,7 +78,39 @@ class Env2048(EnvironmentBase):
         info = self._get_info()
         return observation, info
 
+    def step_possible(self):
+        if self._board.up():
+            self._board.down()
+            return True
+        elif self._board.right():
+            self._board.left()
+            return True
+        elif self._board.down():
+            self._board.up()
+            return True
+        elif self._board.left():
+            self._board.right()
+            return True
+        else:
+            return False
+
+    def get_possible_actions(self):
+        possible_actions = []
+
+        if self._board.up():
+            possible_actions.append(0)
+        if self._board.right():
+            possible_actions.append(1)
+        if self._board.down():
+            possible_actions.append(2)
+        if self._board.left():
+            possible_actions.append(3)
+
+        return possible_actions
+
     def step(self, action: int):
+        old_score = np.sum(self._get_obs())
+
         if action == 0:
             did_turn = self._board.up()
         elif action == 1:
@@ -98,7 +130,8 @@ class Env2048(EnvironmentBase):
         truncated = self._remaining_turns == 0
         terminated = not did_turn
 
-        reward = np.max(observation) if truncated or terminated else 0
+        # reward = np.max(observation) if truncated or terminated else 0
+        reward = int(np.sum(observation) - old_score)
 
         if self._render_mode == "human":
             self.render()
