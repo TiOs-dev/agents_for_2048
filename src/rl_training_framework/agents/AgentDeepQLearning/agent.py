@@ -17,13 +17,21 @@ from rl_training_framework.agents.AgentDeepQLearning.utils import (
     TRANSITION,
 )
 
-# TODO: Welche Werte möchte ich statistisch auswerten?
-# - [] Reward
-# - [] Number of turns until termination in each episode
-# - [] Number of turns per episode where no move was done (should increase with smaller eps)
-# - [] Biggest tile at the end of the episode
-# TODO: Sth ist fishy with terminated. Find out why terminated is sometimes set True even if it
-# should be false!
+# TODO:
+# - [x] Reward
+# - [x] Number of turns until termination in each episode
+# - [x] Biggest tile at the end of the episode (Current solution: log the whole board)
+# - [] Rewrite the logging messages in a way that allows for logging in json-lines (each
+#      line of log file in json format)
+# - [] Write a parser for the logging file to convert the logs to sth useful
+# - [] Implement functions and classes for a statistical analysis of the logged stuff
+#       - [] Make a plot of the mean rewards per epoch (This does not make sense with std
+#            because we have a lot of very small rewards)
+#       - [] Make a plot for the max rewards per epoch + std
+#       - [] Make a plot of the number of turns per epoch + std
+#       - [] Make a plot of the highest tile per epoch + std
+# - [x] Fix the rewards. Currently the value of the new tile is included in the reward
+#      each turn
 
 
 class Agent(AgentBase):
@@ -58,8 +66,6 @@ class Agent(AgentBase):
             result = torch.tensor([[self.env.action_space.sample()]], dtype=torch.long)
 
         possible_actions = self._env.get_possible_actions()
-        print("Chosen action:", result.item())
-        print("POSSIBLE ACTIONS:", possible_actions)
         if result.item() not in possible_actions:
             try:
                 return torch.tensor(
@@ -127,7 +133,7 @@ class Agent(AgentBase):
         self.rewards = []
         self.state = torch.tensor(state, dtype=torch.float32, device="cpu").unsqueeze(0)
 
-    def run_trajectory(self):
+    def run_trajectory(self, epoch: int | None = None):
         state, info = self.env.reset()
         self.state = torch.tensor(state, dtype=torch.float32, device="cpu").unsqueeze(0)
 
@@ -145,17 +151,6 @@ class Agent(AgentBase):
             self.rewards.append(reward)
             reward = torch.tensor([reward], device="cpu")
             done = terminated or truncated
-
-            print("Terminated:", terminated)
-
-            # if terminated:
-            #     # next_state = None
-            #     # break
-            #     if self._env.step_possible():
-            #         continue
-
-            #     next_state = None
-            #     break
 
             next_state = torch.tensor(
                 observation, dtype=torch.float32, device="cpu"
@@ -177,6 +172,10 @@ class Agent(AgentBase):
                 )
             self.target_net.load_state_dict(target_net_state_dict)
 
+            logger.info(
+                f"Epoch: {epoch} - Step: {t} - Reward: {reward.item()} - Board: {observation}"
+            )
+
             if done:
                 next_state = None
                 break
@@ -186,19 +185,30 @@ class Agent(AgentBase):
 
 
 if __name__ == "__main__":
+    import logging
+    import logging.config
+    import json
+
     from tqdm import tqdm
 
     from rl_training_framework.environments.Env2048.environment import Env2048
 
-    num_episodes = 50
+    path_to_log_config = join(
+        Path(__file__).resolve().parent.parent.parent, "logging", "logging_conf.json"
+    )
+    with open(path_to_log_config, "rb") as log_conf:
+        config = json.load(log_conf)
+
+    logging.config.dictConfig(config)
+    logger = logging.getLogger("TrainingLogger")
+
+    num_epochs = 50
     test_env = Env2048()
     test_agent = Agent(test_env)
 
     rewards = []
 
-    for i_episode in tqdm(
-        range(num_episodes), desc="episodes", position=0, leave=False
-    ):
-        test_agent.run_trajectory()
+    for i_epoch in tqdm(range(num_epochs), desc="episodes", position=0, leave=False):
+        test_agent.run_trajectory(i_epoch)
 
     print("Complete!")
