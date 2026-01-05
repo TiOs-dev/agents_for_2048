@@ -8,6 +8,7 @@ import math
 import torch
 import torch.optim as optim
 import torch.nn as nn
+import numpy as np
 
 from rl_training_framework.environments.environment_base import EnvironmentBase
 from rl_training_framework.agents.agent_base import AgentBase
@@ -21,7 +22,7 @@ from rl_training_framework.agents.AgentDeepQLearning.utils import (
 # - [x] Reward
 # - [x] Number of turns until termination in each episode
 # - [x] Biggest tile at the end of the episode (Current solution: log the whole board)
-# - [] Rewrite the logging messages in a way that allows for logging in json-lines (each
+# - [x] Rewrite the logging messages in a way that allows for logging in json-lines (each
 #      line of log file in json format)
 # - [] Write a parser for the logging file to convert the logs to sth useful
 # - [] Implement functions and classes for a statistical analysis of the logged stuff
@@ -173,7 +174,7 @@ class Agent(AgentBase):
             self.target_net.load_state_dict(target_net_state_dict)
 
             logger.info(
-                f"Epoch: {epoch} - Step: {t} - Reward: {reward.item()} - Board: {observation}"
+                f'{{ "epoch": {epoch}, "step": {t}, "reward": {reward.item()}, "board-state": {np.array2string(observation.flatten(), separator=",")} }}'
             )
 
             if done:
@@ -202,7 +203,7 @@ if __name__ == "__main__":
     logging.config.dictConfig(config)
     logger = logging.getLogger("TrainingLogger")
 
-    num_epochs = 50
+    num_epochs = 5000
     test_env = Env2048()
     test_agent = Agent(test_env)
 

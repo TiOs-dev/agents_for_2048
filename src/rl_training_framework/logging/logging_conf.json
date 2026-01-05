@@ -3,7 +3,7 @@
   "disable_existing_loggers": false,
   "formatters": {
     "default": {
-      "format": "{\"time\": %(asctime)s, \"modulename\": %(name)s, \"levelname\" %(levelname)s, \"message\": %(message)s"
+      "format": "{\"time\": \"%(asctime)s\", \"modulename\": \"%(name)s\", \"levelname\": \"%(levelname)s\", \"message\": %(message)s"
     }
   },
   "handlers": {
