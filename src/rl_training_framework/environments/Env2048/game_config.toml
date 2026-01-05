@@ -7,6 +7,7 @@ shape = [4, 4]
 num_actions = 4
 
 [rendering]
+mode = "non-human"
 number_of_tiles = 4  # What does size do in my environment?
 tile_size = 100
 gap_between_tiles = 10
@@ -16,6 +17,7 @@ empty_tile_color = [ 205, 192, 180 ]
 font_color = [ 0, 0, 0 ]
 font_size = 40
 font = "arial"
+fps = 4
 
 [rendering.tile_colors]
 "2" = [ 238, 228, 218 ]

@@ -2,6 +2,7 @@ from typing import Any
 from pathlib import Path
 from os.path import join
 import tomllib
+import logging
 
 import numpy as np
 import gymnasium as gym
@@ -10,6 +11,8 @@ import game_2048 as game
 
 from rl_training_framework.environments.environment_base import EnvironmentBase
 
+logger = logging.getLogger("TrainingLogger")
+
 
 class Env2048(EnvironmentBase):
     def __init__(
@@ -17,7 +20,6 @@ class Env2048(EnvironmentBase):
         game_config: str | dict[str, Any] = join(
             Path(__file__).resolve().parent, "game_config.toml"
         ),
-        render_mode: str = "human",
         max_turns=1000,
     ):
         if isinstance(game_config, str):
@@ -38,7 +40,7 @@ class Env2048(EnvironmentBase):
         )
 
         self.action_space = gym.spaces.Discrete(4)
-        self._render_mode = render_mode
+        self._render_mode = self._game_config["rendering"]["mode"]
 
         if self._render_mode == "human":
             self._screen_size = (
@@ -79,32 +81,39 @@ class Env2048(EnvironmentBase):
         return observation, info
 
     def step_possible(self):
-        if self._board.up():
-            self._board.down()
-            return True
-        elif self._board.right():
-            self._board.left()
-            return True
-        elif self._board.down():
-            self._board.up()
-            return True
-        elif self._board.left():
-            self._board.right()
-            return True
-        else:
-            return False
+        # if self._board.up():
+        #     self._board.down()
+        #     return True
+        # elif self._board.right():
+        #     self._board.left()
+        #     return True
+        # elif self._board.down():
+        #     self._board.up()
+        #     return True
+        # elif self._board.left():
+        #     self._board.right()
+        #     return True
+        # else:
+        #     return False
+        raise NotImplementedError
 
     def get_possible_actions(self):
+        old_board = self._board.board[:][:]
+
         possible_actions = []
 
         if self._board.up():
             possible_actions.append(0)
+            self._board.board = old_board[:][:]
         if self._board.right():
             possible_actions.append(1)
+            self._board.board = old_board[:][:]
         if self._board.down():
             possible_actions.append(2)
+            self._board.board = old_board[:][:]
         if self._board.left():
             possible_actions.append(3)
+            self._board.board = old_board[:][:]
 
         return possible_actions
 
@@ -120,6 +129,8 @@ class Env2048(EnvironmentBase):
         else:
             did_turn = self._board.left()
 
+        reward = int(np.sum(self._get_obs()) - old_score)
+
         if did_turn:
             self._board.generate_new_tile()
 
@@ -129,9 +140,6 @@ class Env2048(EnvironmentBase):
         self._remaining_turns -= 1
         truncated = self._remaining_turns == 0
         terminated = not did_turn
-
-        # reward = np.max(observation) if truncated or terminated else 0
-        reward = int(np.sum(observation) - old_score)
 
         if self._render_mode == "human":
             self.render()
@@ -144,7 +152,7 @@ class Env2048(EnvironmentBase):
         pygame.event.pump()
         pygame.display.update()
 
-        self.clock.tick(self.metadata["render_fps"])
+        self.clock.tick(float(self._game_config["rendering"]["fps"]))
 
     def _draw_tile(self, value: int, x: int, y: int):
         color = self._game_config["rendering"]["tile_colors"].get(
@@ -201,9 +209,7 @@ class Env2048(EnvironmentBase):
 
 
 if __name__ == "__main__":
-    from random import randrange
-
     env = Env2048()
-    for i in range(10000):
-        action = randrange(0, 4)
-        env.step(action)
+    for i in range(10):
+        print(env.get_possible_actions())
+        env.step(3)
