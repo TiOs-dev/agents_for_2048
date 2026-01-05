@@ -11,3 +11,6 @@ wheels/
 
 # Pylint stuff
 .pylintrc
+
+# Logging
+*.logs
