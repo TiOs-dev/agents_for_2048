@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "disable_existing_loggers": false,
+  "formatters": {
+    "default": {
+      "format": "{\"time\": %(asctime)s, \"modulename\": %(name)s, \"levelname\" %(levelname)s, \"message\": %(message)s"
+    }
+  },
+  "handlers": {
+    "file": {
+      "level": "INFO",
+      "class": "logging.FileHandler",
+      "filename": "training.logs",
+      "formatter": "default"
+    },
+    "stdout": {
+      "level": "DEBUG",
+      "class": "logging.StreamHandler",
+      "formatter": "default"
+    }
+  },
+  "loggers": {
+    "TrainingLogger": {
+      "handlers": ["file"],
+      "level": "DEBUG",
+      "propagate": true
+    }
+  }
+}
