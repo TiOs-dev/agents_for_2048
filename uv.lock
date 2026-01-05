@@ -8,7 +8,7 @@ resolution-markers = [
 
 [[package]]
 name = "2048-pyo3"
-version = "0.2.0"
+version = "0.3.0"
 source = { directory = "submodules/2048.pyo3" }
 dependencies = [
     { name = "maturin" },
