@@ -8,6 +8,7 @@ dependencies = [
     "2048-pyo3",
     "gymnasium>=1.2.2",
     "matplotlib>=3.10.7",
+    "pandas>=2.3.3",
     "pygame>=2.6.1",
     "pylint>=4.0.3",
     "pyqt6>=6.10.0",
