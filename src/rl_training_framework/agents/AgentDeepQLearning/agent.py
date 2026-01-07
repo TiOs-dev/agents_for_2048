@@ -22,8 +22,15 @@ from rl_training_framework.agents.AgentDeepQLearning.utils import (
 # - [x] Reward
 # - [x] Number of turns until termination in each episode
 # - [x] Biggest tile at the end of the episode (Current solution: log the whole board)
+# - [] Log the number of actions per epoch that were not chosen deliberately (i.e. the agent
+#      actually chose a valid action and did not have to use the feature that chooses a valid
+#      action for it if its chosen action is not possible)
+# - [] The agent does not improve its performance over time (does not beat random baseline). Why?
+#       - [] One reason could be that the agent update is not working properly when a random action is chosen.
+#       - [] Find the reason for this problem and fix it.
 # - [x] Rewrite the logging messages in a way that allows for logging in json-lines (each
 #      line of log file in json format)
+# - [] Fix the hyperparameters of the agent (the eps decays to fast, maybe try constant epsilon?)
 # - [] Write a parser for the logging file to convert the logs to sth useful
 # - [] Implement functions and classes for a statistical analysis of the logged stuff
 #       - [] Make a plot of the mean rewards per epoch (This does not make sense with std
@@ -59,7 +66,7 @@ class Agent(AgentBase):
         eps_threshold = self.hyperparams["eps_end"] + (
             self.hyperparams["eps_start"] - self.hyperparams["eps_end"]
         ) * math.exp(-1.0 * self.steps_done / self.hyperparams["eps_decay"])
-        self.steps_done += 1
+        # self.steps_done += 1  # TODO: Do I want to do this after every action or epoch?
         if sample > eps_threshold:
             with torch.no_grad():
                 result = self.policy_net(state).max(1).indices.view(1, 1)
@@ -180,6 +187,9 @@ class Agent(AgentBase):
             if done:
                 next_state = None
                 break
+        self.steps_done += (
+            1  # TODO: Do I want to do this after every step or every epoch?
+        )
 
     def do_test_run(self):
         pass
@@ -203,7 +213,7 @@ if __name__ == "__main__":
     logging.config.dictConfig(config)
     logger = logging.getLogger("TrainingLogger")
 
-    num_epochs = 5000
+    num_epochs = 2500
     test_env = Env2048()
     test_agent = Agent(test_env)
 
