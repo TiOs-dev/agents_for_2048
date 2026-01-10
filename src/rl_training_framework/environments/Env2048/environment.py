@@ -118,7 +118,7 @@ class Env2048(EnvironmentBase):
         return possible_actions
 
     def step(self, action: int):
-        old_score = np.sum(self._get_obs())
+        old_score = self._board.score
 
         if action == 0:
             did_turn = self._board.up()
@@ -129,7 +129,7 @@ class Env2048(EnvironmentBase):
         else:
             did_turn = self._board.left()
 
-        reward = int(np.sum(self._get_obs()) - old_score)
+        reward = self._board.score - old_score
 
         if did_turn:
             self._board.generate_new_tile()
