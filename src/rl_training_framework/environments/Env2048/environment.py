@@ -129,7 +129,7 @@ class Env2048(EnvironmentBase):
         else:
             did_turn = self._board.left()
 
-        reward = self._board.score - old_score
+        reward = self._board.score - old_score if did_turn else -100
 
         if did_turn:
             self._board.generate_new_tile()
