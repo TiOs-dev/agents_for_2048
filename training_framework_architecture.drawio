@@ -1,0 +1,180 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="Uc_MpY7JPg4U1Xte8q4m">
+    <mxGraphModel dx="5012" dy="3107" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-9" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="400" width="520" x="-685" y="-470" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-8" parent="E6R6RJuI2u9ENM7obnkt-9" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Environments" vertex="1">
+          <mxGeometry height="400" width="520" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-16" parent="E6R6RJuI2u9ENM7obnkt-9" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;EnvironmentBase&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ metadata: Dict[str, Any]&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ step(action)&lt;br&gt;+ render(): None&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ close(): None&lt;/p&gt;" vertex="1">
+          <mxGeometry height="120.93023255813954" width="190" x="40" y="37.2093023255814" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-10" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="400" width="490" x="-670" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-7" parent="E6R6RJuI2u9ENM7obnkt-10" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Agents" vertex="1">
+          <mxGeometry height="400" width="490.00000000000006" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-15" parent="E6R6RJuI2u9ENM7obnkt-10" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;AgentBase&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ _env: EnvironmentBase&lt;br&gt;+ _hyperparams: Dict[str, Any]&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ select_action()&lt;br&gt;+ optimize_model()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ setup_training()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ run_trajectory()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ do_test_run()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="170" width="190" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-29" edge="1" parent="1" source="E6R6RJuI2u9ENM7obnkt-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="E6R6RJuI2u9ENM7obnkt-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-11" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="logging" vertex="1">
+          <mxGeometry height="530" width="600" x="-770" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-12" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="visualization" vertex="1">
+          <mxGeometry height="350" width="460" x="35" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-13" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="FrontEnd" vertex="1">
+          <mxGeometry height="160" width="290" x="590" y="1230" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-20" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="450" width="520" x="-650" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-17" parent="E6R6RJuI2u9ENM7obnkt-20" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Trainer" vertex="1">
+          <mxGeometry height="450" width="520" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-19" parent="E6R6RJuI2u9ENM7obnkt-20" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=left;" value="&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;Steps for Training:&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;1) Initialize logger (?)&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;2) Initialize environment&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;3) Setup Agent&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;4) Run training loop:&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- get environment state&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- generate step with Agent&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- update environment&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- evaluate new state&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- update Agent&lt;br&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="200" width="240" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-21" parent="1" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=left;" value="&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;Goal here is to visualize the training progress by looking at different metrics.&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;Design a visualization strategy for different metrics groups.&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;Different types of visualization stuff:&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Optimization metrics: Multiple curves on one figure + Line plot vs. epoch/step (e.g. for Training/Validation loss, learning rate, gradient norm, gradient variance, weight norm, update norm, weight decay contribution)&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Performance Metrics: Train vs. validation curves + Best-so-far indicators + Comparision between metrics (e.g. for Accuracy, Precision, Recall, F1, MAE, MSE, IoU, Dice coefficient, Pixel accuracy, mAP, AP50, AP75, ...)&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Resource metrics: Time series + Area plots (e.g. for GPU utilization, CPU utilization, RAM usage, VRAM usage, Training output (sample/sec, batches/sec), disk usage, network bandwith, ...)&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Timing Metrics: Time series + Box plots + Histograms (e.g. for Epoch duration, Batch duration, Data loading time, Forward pass time, Backward pass time, Validation duration)&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Learning Dynamics: Histograms + Heatmaps + Layer-wise plots (e.g. for Gradient norms, Activation statistics, Dead neurons, Saturated activations, Batch Norm statistics, Layer-wise learning rate, Weight distributions)&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Prediction Metrics: Heatmaps, Curves, Histograms (Confusion matrix, ROC curve, Precision-recall curve, Calibation curve, Prediction histogram, Class distribution, Confidence histogram)&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Dataset Metrics: Bar charts, Histograms, Pie charts, Distribution plots (e.g. for class balance, label distribution, sample weights, number of augmented samples, missing values, dataset drift, feature distributions)&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Experiment Metrics: Tables, Timeline, Progress bar (Current epoch, global step, Best validation score, early stopping patience, checkpoint count, hyperparameters, random seed)&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- model specific metrics (e.g. episode reward, episode length, value loss, policy loss, entropy.)&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- visualization of the best runs and the worst runs using the environment&lt;br&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="270" width="1290" x="410" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-22" parent="1" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=left;" value="&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;Metrics that should be logged:&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Optimization Metrics (Training/Validation loss, learning rate, gradient norm, gradient variance, weight norm, update norm, weight decay contribution)&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Performance Metrics (Accuracy, Precision, Recall, F1, Top-k Accuracy, ROC AUC, PR AUC, MAE, MSE, RMSE, R^2, IoU, Dice coefficient, Pixel accuracy, mAP, AP50, AP75)&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Resource Metrics (GPU utilization, CPU utilization, RAM usage, VRAM usage, Training throughput (sample/sec, batches/sec), disk usage, network bandwidth)&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Timing metrics (epoch duration, batch duration, data loading time, forward pass time, backward pass time, validation duration)&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Learning dynamics (gradient norms, activation statistics, dead neurons, saturated activations, batch norm statistics, layer-wise learning rate, weight distributions)&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Dataset metrics (class balance, label distribution, sample weights, number of augmented samples, missing values, dataset drift, feature distributions)&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Experiment Metrics (current epoch, global step, best validation score, early stopping patience, checkpoint count, hyperparameters, random seed)&lt;br&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Model specific metrics (episode reward, episode length, value loss, policy loss, entropy)&lt;br&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="190" width="1020" x="-880" y="1490" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-24" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.75;entryDx=10;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;endFill=0;" target="E6R6RJuI2u9ENM7obnkt-17" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="-640" y="980" />
+              <mxPoint x="-720" y="980" />
+              <mxPoint x="-720" y="837.52" />
+            </Array>
+            <mxPoint x="-640" y="1020" as="sourcePoint" />
+            <mxPoint x="-710" y="950" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-25" edge="1" parent="1" source="E6R6RJuI2u9ENM7obnkt-13" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="E6R6RJuI2u9ENM7obnkt-12" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="330" y="1180" as="sourcePoint" />
+            <mxPoint x="380" y="1130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-27" parent="1" style="shape=datastore;whiteSpace=wrap;html=1;" value="SQLite Database or InfluxDB or Postgres with Timescale" vertex="1">
+          <mxGeometry height="220" width="220" x="20" y="1175" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-30" edge="1" parent="1" source="E6R6RJuI2u9ENM7obnkt-27" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="E6R6RJuI2u9ENM7obnkt-12" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="130" y="1140" as="sourcePoint" />
+            <mxPoint x="180" y="1090" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-32" edge="1" parent="1" source="E6R6RJuI2u9ENM7obnkt-8" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;startArrow=classic;startFill=1;endFill=0;" target="E6R6RJuI2u9ENM7obnkt-7" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="-69.92" y="-270" />
+              <mxPoint x="-69.92" y="240" />
+            </Array>
+            <mxPoint x="30" y="320" as="sourcePoint" />
+            <mxPoint x="80" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-33" edge="1" parent="1" source="E6R6RJuI2u9ENM7obnkt-7" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.25;exitDx=10;exitDy=0;exitPerimeter=0;edgeStyle=orthogonalEdgeStyle;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endFill=0;" target="E6R6RJuI2u9ENM7obnkt-34" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="-789.92" y="140" />
+              <mxPoint x="-789.92" y="180" />
+            </Array>
+            <mxPoint x="-600" y="390" as="sourcePoint" />
+            <mxPoint x="-850" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-34" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="TrainingEnvironment" vertex="1">
+          <mxGeometry height="340" width="640" x="-1460" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-35" edge="1" parent="1" source="E6R6RJuI2u9ENM7obnkt-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=10;entryDy=0;entryPerimeter=0;" target="E6R6RJuI2u9ENM7obnkt-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-959.92" y="-270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-36" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;verticalAlign=top;" value="&lt;h2&gt;Gateways&lt;/h2&gt;" vertex="1">
+          <mxGeometry height="1340" width="1340" x="-1490" y="2550" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-37" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;verticalAlign=top;" value="&lt;h2&gt;Use Cases&lt;/h2&gt;" vertex="1">
+          <mxGeometry height="740" width="740" x="-1460" y="2830" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-41" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;verticalAlign=top;" value="&lt;h2&gt;Business Logic&lt;/h2&gt;" vertex="1">
+          <mxGeometry height="400" width="400" x="-1440" y="3000" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-44" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Agents" vertex="1">
+          <mxGeometry height="40" width="90" x="-1340" y="3120" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-45" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Environment" vertex="1">
+          <mxGeometry height="40" width="120" x="-1320" y="3260" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-47" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="TrainingEnvironment" vertex="1">
+          <mxGeometry height="50" width="160" x="-960" y="3240" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-55" edge="1" parent="1" source="E6R6RJuI2u9ENM7obnkt-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" target="E6R6RJuI2u9ENM7obnkt-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-48" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Loggers" vertex="1">
+          <mxGeometry height="50" width="100" x="-930" y="3070" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-57" edge="1" parent="1" source="E6R6RJuI2u9ENM7obnkt-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=15;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="E6R6RJuI2u9ENM7obnkt-52">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-60" edge="1" parent="1" source="E6R6RJuI2u9ENM7obnkt-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=35;exitPerimeter=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" target="E6R6RJuI2u9ENM7obnkt-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-49" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Visualization" vertex="1">
+          <mxGeometry height="40" width="110" x="-520" y="3060" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-63" edge="1" parent="1" source="E6R6RJuI2u9ENM7obnkt-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=35;exitPerimeter=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" target="E6R6RJuI2u9ENM7obnkt-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-50" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="GameRenderers" vertex="1">
+          <mxGeometry height="40" width="120" x="-590" y="3180" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-62" edge="1" parent="1" source="E6R6RJuI2u9ENM7obnkt-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=15;exitPerimeter=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" target="E6R6RJuI2u9ENM7obnkt-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-51" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Trainer" vertex="1">
+          <mxGeometry height="40" width="90" x="-590" y="3290" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-56" edge="1" parent="1" source="E6R6RJuI2u9ENM7obnkt-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=35;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="E6R6RJuI2u9ENM7obnkt-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-52" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="DatabaseGateway" vertex="1">
+          <mxGeometry height="40" width="145" x="-685" y="2840" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-53" edge="1" parent="1" source="E6R6RJuI2u9ENM7obnkt-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=15;entryPerimeter=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" target="E6R6RJuI2u9ENM7obnkt-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-54" edge="1" parent="1" source="E6R6RJuI2u9ENM7obnkt-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=35;entryPerimeter=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" target="E6R6RJuI2u9ENM7obnkt-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-64" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;h1&gt;Backend&lt;/h1&gt;" vertex="1">
+          <mxGeometry height="30" width="150" x="-895" y="2490" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-65" parent="1" style="shape=datastore;whiteSpace=wrap;html=1;" value="SQLite Database or InfluxDB or Postgres with Timescale" vertex="1">
+          <mxGeometry height="220" width="220" x="-20" y="2520" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-66" edge="1" parent="1" source="E6R6RJuI2u9ENM7obnkt-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.004;entryY=0.544;entryDx=0;entryDy=0;entryPerimeter=0;" target="E6R6RJuI2u9ENM7obnkt-65">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E6R6RJuI2u9ENM7obnkt-86" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;h1&gt;Frontend (see Claude chat)&lt;/h1&gt;" vertex="1">
+          <mxGeometry height="30" width="365" x="1585" y="2500" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
